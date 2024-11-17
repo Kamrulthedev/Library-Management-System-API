@@ -18,6 +18,7 @@
     "typescript": "^5.6.3"
   },
   "dependencies": {
+    "@prisma/client": "^5.22.0",
     "@types/express": "^5.0.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
