@@ -3,13 +3,13 @@ import sendResponse from "../../../shared/sendResponse";
 import { ReturnServices } from "./return.service";
 
 const CreateReturnDB = catchAsync(async (req, res) => {
-    const data = req.body;
-    const result = await ReturnServices.CreateReturn(data);
+    const {borrowId} = req.body;
+    const result = await ReturnServices.CreateReturn(borrowId);
     sendResponse(res, {
       statusCode: 200,
       success: true,
       message: "Book returned successfully",
-      data: result,
+      data: null,
     });
   });
 
