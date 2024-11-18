@@ -7,5 +7,8 @@ const router = express.Router();
 router.post("", MemberControllars.CreateMemberDB);
 
 
+router.get("", MemberControllars.GetMembersDB)
+
+
 
 export const MemberRoutes = router;

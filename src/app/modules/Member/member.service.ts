@@ -30,6 +30,19 @@ const CreateMember = async (data: TMember) => {
   }
 };
 
+
+const GetMembers = async () => {
+    try {
+      const members = await prisma.member.findMany();
+      return members;
+    } catch (error) {
+      console.error("Error fetching members:", error);
+      throw error;
+    }
+  };
+
+
 export const MemberService = {
   CreateMember,
+  GetMembers
 };
