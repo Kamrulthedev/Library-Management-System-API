@@ -2,6 +2,7 @@ import express from "express";
 import { BookRoutes } from "../modules/Book/book.route";
 import { MemberRoutes } from "../modules/Member/member.route";
 import { BorrowRoutes } from "../modules/Borrow/borrow.route";
+import { ReturnRoutes } from "../modules/return/return.route";
 
 const router = express.Router();
 
@@ -16,6 +17,10 @@ const moduleRotes = [{
 {
     path: "/borrow",
     route : BorrowRoutes
+},
+{
+    path: "/return",
+    route: ReturnRoutes
 }
 ];
 
