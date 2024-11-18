@@ -70,9 +70,22 @@ const GetByBookId = async (id: string) => {
 };
 
 
-const UpdateBook = async(id: string, data : Partial<TBook>)=>{
-   console.log(id, data)
-};
+const UpdateBook = async (id: string, data: Partial<TBook>) => {
+    try {
+      if (Object.keys(data).length === 0) {
+        throw new Error("No data provided to update the book.");
+      }
+      const updatedBook = await prisma.book.update({
+        where: { bookId: id },
+        data: data,
+      });
+  
+      return updatedBook;
+    } catch (error) {
+      console.error("Error updating book:", error);
+      throw error;
+    }
+  };
 
 
 export const BookServices = {
