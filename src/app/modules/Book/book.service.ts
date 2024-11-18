@@ -88,9 +88,33 @@ const UpdateBook = async (id: string, data: Partial<TBook>) => {
   };
 
 
+  const DeleteBook = async (id: string) => {
+    try {
+      const book = await prisma.book.findUnique({
+        where: { bookId: id },
+      });
+  
+      if (!book) {
+        throw new Error(`Book with ID ${id} not found.`);
+      }
+  
+      // Perform the delete operation
+      const deletedBook = await prisma.book.delete({
+        where: { bookId: id },
+      });
+  
+      return deletedBook;
+    } catch (error) {
+      console.error("Error deleting book:", error);
+      throw error;
+    }
+  };
+
+
 export const BookServices = {
   CreateBook,
   GetBooks,
   GetByBookId,
-  UpdateBook
+  UpdateBook,
+  DeleteBook
 };

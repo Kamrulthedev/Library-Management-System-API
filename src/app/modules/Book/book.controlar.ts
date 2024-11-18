@@ -35,8 +35,8 @@ const GetByBookIdDB = catchAsync(async (req, res) => {
 });
 
 const UpdateBookDB = catchAsync(async (req, res) => {
-    const {bookId} = req.params;
-    const data = req.body;
+  const { bookId } = req.params;
+  const data = req.body;
   const result = await BookServices.UpdateBook(bookId, data);
   sendResponse(res, {
     statusCode: 200,
@@ -46,9 +46,20 @@ const UpdateBookDB = catchAsync(async (req, res) => {
   });
 });
 
+const DeleteBookDB = catchAsync(async (req, res) => {
+  const { bookId } = req.params;
+  const result = await BookServices.DeleteBook(bookId);
+  res.send({
+    success: true,
+    status: 200,
+    message: "Book successfully deleted",
+  });
+});
+
 export const BooksControllars = {
   CreateBookDB,
   GetBooksDB,
   GetByBookIdDB,
   UpdateBookDB,
+  DeleteBookDB
 };

@@ -11,4 +11,6 @@ router.get("/:bookId", BooksControllars.GetByBookIdDB);
 
 router.put("/:bookId", BooksControllars.UpdateBookDB);
 
+router.delete("/:bookId", BooksControllars.DeleteBookDB);
+
 export const BookRoutes = router;
