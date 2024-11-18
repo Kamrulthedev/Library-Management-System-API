@@ -7,7 +7,7 @@ const CreateBorrowDB = catchAsync(async (req, res) => {
     const data = req.body;
     const result = await BorrowServices.CreateBorrow(data);
     sendResponse(res, {
-      statusCode: 201,
+      statusCode: 200,
       success: true,
       message: "Book borrowed successfully!",
       data: result,
