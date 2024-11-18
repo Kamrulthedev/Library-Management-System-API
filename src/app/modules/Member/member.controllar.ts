@@ -23,7 +23,46 @@ const GetMembersDB = catchAsync(async (req, res) => {
   });
 });
 
+const GetByMemberIdDB = catchAsync(async (req, res) => {
+  const { memberId } = req.params;
+  const result = await MemberService.GetByMemberId(memberId);
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: "Members retrieved successfully!",
+    data: result,
+  });
+});
+
+
+const UpdateMemberDB = catchAsync(async (req, res) => {
+    const { memberId } = req.params;
+    const data = req.body;
+    const result = await MemberService.UpdateMember(memberId, data);
+    sendResponse(res, {
+      statusCode: 200,
+      success: true,
+      message: "Member updated successfully!",
+      data: result,
+    });
+  });
+
+
+const DeleteMemberDB = catchAsync(async (req, res) => {
+    const { memberId } = req.params;
+    const result = await MemberService.DeleteMember(memberId);
+    sendResponse(res, {
+      statusCode: 200,
+      success: true,
+      message: "Member successfully deleted!",
+      data: null,
+    });
+  });
+
 export const MemberControllars = {
   CreateMemberDB,
   GetMembersDB,
+  GetByMemberIdDB,
+  UpdateMemberDB,
+  DeleteMemberDB
 };
