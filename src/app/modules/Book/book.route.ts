@@ -7,8 +7,8 @@ router.post("", BooksControllars.CreateBookDB);
 
 router.get("", BooksControllars.GetBooksDB);
 
-router.get("/:id", BooksControllars.GetByBookIdDB);
+router.get("/:bookId", BooksControllars.GetByBookIdDB);
 
-router.get("/:id", BooksControllars.UpdateBookDB);
+router.put("/:bookId", BooksControllars.UpdateBookDB);
 
 export const BookRoutes = router;

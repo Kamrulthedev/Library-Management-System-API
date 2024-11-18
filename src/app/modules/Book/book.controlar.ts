@@ -24,8 +24,8 @@ const GetBooksDB = catchAsync(async (req, res) => {
 });
 
 const GetByBookIdDB = catchAsync(async (req, res) => {
-    const {id} = req.params;
-  const result = await BookServices.GetByBookId(id as unknown as string);
+  const { bookId } = req.params;
+  const result = await BookServices.GetByBookId(bookId as unknown as string);
   sendResponse(res, {
     statusCode: 200,
     success: true,
@@ -34,19 +34,21 @@ const GetByBookIdDB = catchAsync(async (req, res) => {
   });
 });
 
-const UpdateBookDB = catchAsync(async(req, res) =>{
-    const result = await BookServices
-    sendResponse(res, {
-        statusCode : 200, 
-        success : true,
-        message : "",
-        data : result
-    })
-})
+const UpdateBookDB = catchAsync(async (req, res) => {
+    const {bookId} = req.params;
+    const data = req.body;
+  const result = await BookServices.UpdateBook(bookId, data);
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: "Book updated successfully",
+    data: result,
+  });
+});
 
 export const BooksControllars = {
   CreateBookDB,
   GetBooksDB,
   GetByBookIdDB,
-  UpdateBookDB
+  UpdateBookDB,
 };

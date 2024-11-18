@@ -49,11 +49,35 @@ const GetBooks = async () => {
 };
 
 const GetByBookId = async (id: string) => {
-  console.log(id);
+  try {
+    // Fetch the book by its ID
+    const book = await prisma.book.findUnique({
+      where: {
+        bookId: id,
+      },
+    });
+
+    // Check if the book exists
+    if (!book) {
+      throw new Error(`Book with ID ${id} not found.`);
+    }
+
+    return book;
+  } catch (error) {
+    console.error("Error fetching book by ID:", error);
+    throw error;
+  }
 };
+
+
+const UpdateBook = async(id: string, data : Partial<TBook>)=>{
+   console.log(id, data)
+};
+
 
 export const BookServices = {
   CreateBook,
   GetBooks,
   GetByBookId,
+  UpdateBook
 };
