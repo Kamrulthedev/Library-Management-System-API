@@ -5,4 +5,6 @@ const router = express.Router();
 
 router.post("", BooksControllars.CreateBookDB);
 
+router.get("", BooksControllars.GetBooksDB);
+
 export const BookRoutes = router;

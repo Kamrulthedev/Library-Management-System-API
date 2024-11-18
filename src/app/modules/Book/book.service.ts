@@ -30,6 +30,19 @@ const CreateBook = async (data: TBook) => {
     }
   };
 
+
+  const GetBooks = async () => {
+    try {
+      // Fetch all books from the database
+      const books = await prisma.book.findMany();
+      return books;
+    } catch (error) {
+      console.error("Error fetching books:", error);
+      throw error;
+    }
+  };
+
 export const BookServices = {
   CreateBook,
+  GetBooks
 };
