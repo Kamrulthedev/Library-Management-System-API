@@ -2,18 +2,12 @@ import { prisma } from "../../../shared/sharedPrisma";
 
 const CreateMember = async (data: TMember) => {
   try {
-    // Log the input data for debugging
-    console.log("Creating new member with data:", data);
-
-    // Validate required fields
     const { name, email, phone, membershipDate } = data;
     if (!name || !email || !phone || !membershipDate) {
       throw new Error(
         "All fields (name, email, phone, membershipDate) are required."
       );
     }
-
-    // Create a new member in the database
     const newMember = await prisma.member.create({
       data: {
         name,
@@ -42,7 +36,6 @@ const GetMembers = async () => {
 
 const GetByMemberId = async (id: string) => {
   try {
-    // Fetch the member from the database
     const member = await prisma.member.findUnique({
       where: { memberId: id },
     });
@@ -101,7 +94,7 @@ const UpdateMember = async (id: string, data: Partial<{ name: string; email: str
     }
   };
 
-  
+
 
 export const MemberService = {
   CreateMember,
