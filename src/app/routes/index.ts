@@ -4,7 +4,7 @@ import { BookRoutes } from "../modules/Book/book.route";
 const router = express.Router();
 
 const moduleRotes = [{
-    path: "",
+    path: "/books",
     route: BookRoutes
 }];
 
