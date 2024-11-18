@@ -23,7 +23,30 @@ const GetBooksDB = catchAsync(async (req, res) => {
   });
 });
 
+const GetByBookIdDB = catchAsync(async (req, res) => {
+    const {id} = req.params;
+  const result = await BookServices.GetByBookId(id as unknown as string);
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: "Book retrieved successfully!",
+    data: result,
+  });
+});
+
+const UpdateBookDB = catchAsync(async(req, res) =>{
+    const result = await BookServices
+    sendResponse(res, {
+        statusCode : 200, 
+        success : true,
+        message : "",
+        data : result
+    })
+})
+
 export const BooksControllars = {
   CreateBookDB,
   GetBooksDB,
+  GetByBookIdDB,
+  UpdateBookDB
 };
