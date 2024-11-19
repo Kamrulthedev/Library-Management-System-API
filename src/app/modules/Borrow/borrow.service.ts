@@ -58,20 +58,17 @@ const CreateBorrow = async (data: { bookId: string; memberId: string }) => {
 
 const OverdueBorrow = async () => {
   try {
-    // Get the current date
     const currentDate = new Date();
-
-    // Find all borrow records where the book has not been returned and the borrow date is more than 14 days ago
     const overdueBooks = await prisma.borrowRecord.findMany({
       where: {
-        returnDate: null, // Not yet returned
+        returnDate: null, 
         borrowDate: {
-          lt: new Date(currentDate.setDate(currentDate.getDate() - 14)), // Borrow date older than 14 days
+          lt: new Date(currentDate.setDate(currentDate.getDate() - 14)),
         },
       },
       include: {
-        book: true, // To get book details
-        member: true, // To get member (borrower) details
+        book: true,
+        member: true, 
       },
     });
 
@@ -89,12 +86,7 @@ const OverdueBorrow = async () => {
         };
       });
 
-      return {
-        success: true,
-        status: 200,
-        message: "Overdue borrow list fetched",
-        data: overdueList,
-      };
+      return overdueList
     } else {
       return {
         success: true,
@@ -104,13 +96,7 @@ const OverdueBorrow = async () => {
       };
     }
   } catch (error) {
-    console.error("Error fetching overdue borrow records:", error);
-    return {
-      success: false,
-      status: 500,
-      message: "Internal Server Error",
-      error: error?.message,
-    };
+    return error
   }
 };
 
