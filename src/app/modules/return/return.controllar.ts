@@ -4,7 +4,7 @@ import { ReturnServices } from "./return.service";
 
 const CreateReturnDB = catchAsync(async (req, res) => {
     const {borrowId} = req.body;
-    const result = await ReturnServices.CreateReturn(borrowId);
+    await ReturnServices.CreateReturn(borrowId);
     sendResponse(res, {
       statusCode: 200,
       success: true,

@@ -18,14 +18,12 @@ const CreateBorrow = async (data: { bookId: string; memberId: string }) => {
       throw new Error(`Member with ID ${data.memberId} not found.`);
     }
 
-    // Check if there are available copies of the book
     if (book.availableCopies <= 0) {
       throw new Error(
         `No available copies of the book with ID ${data.bookId}.`
       );
     }
 
-    // Create a borrow record
     const borrowRecord = await prisma.borrowRecord.create({
       data: {
         bookId: data.bookId,
@@ -34,7 +32,6 @@ const CreateBorrow = async (data: { bookId: string; memberId: string }) => {
       },
     });
 
-    // Decrease the available copies of the book
     await prisma.book.update({
       where: { bookId: data.bookId },
       data: {
@@ -49,7 +46,6 @@ const CreateBorrow = async (data: { bookId: string; memberId: string }) => {
       borrowDate: borrowRecord.borrowDate,
     };
   } catch (error) {
-    console.error("Error creating borrow record:", error);
     throw error;
   }
 };

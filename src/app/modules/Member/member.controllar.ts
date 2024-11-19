@@ -50,7 +50,7 @@ const UpdateMemberDB = catchAsync(async (req, res) => {
 
 const DeleteMemberDB = catchAsync(async (req, res) => {
     const { memberId } = req.params;
-    const result = await MemberService.DeleteMember(memberId);
+     await MemberService.DeleteMember(memberId);
     sendResponse(res, {
       statusCode: 200,
       success: true,

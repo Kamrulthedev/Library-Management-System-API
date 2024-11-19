@@ -50,7 +50,7 @@ const GetByMemberId = async (id: string) => {
 };
 
 
-const UpdateMember = async (id: string, data: Partial<{ name: string; email: string; phone: string }>) => {
+const UpdateMember = async (id: string, data: Partial<TMember>) => {
     try {
       const existingMember = await prisma.member.findUnique({
         where: { memberId: id },
@@ -81,8 +81,7 @@ const UpdateMember = async (id: string, data: Partial<{ name: string; email: str
       if (!member) {
         throw new Error(`Member with ID ${id} not found.`);
       }
-  
-      // Delete the member from the database
+
       const deletedMember = await prisma.member.delete({
         where: { memberId: id },
       });

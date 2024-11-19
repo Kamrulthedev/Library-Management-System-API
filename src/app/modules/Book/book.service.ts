@@ -32,7 +32,6 @@ const CreateBook = async (data: TBook) => {
 
     return result;
   } catch (error) {
-    console.error("Error creating book:", error);
     throw error;
   }
 };
@@ -43,7 +42,6 @@ const GetBooks = async () => {
     const books = await prisma.book.findMany();
     return books;
   } catch (error) {
-    console.error("Error fetching books:", error);
     throw error;
   }
 };
@@ -64,7 +62,6 @@ const GetByBookId = async (id: string) => {
 
     return book;
   } catch (error) {
-    console.error("Error fetching book by ID:", error);
     throw error;
   }
 };
@@ -82,7 +79,6 @@ const UpdateBook = async (id: string, data: Partial<TBook>) => {
   
       return updatedBook;
     } catch (error) {
-      console.error("Error updating book:", error);
       throw error;
     }
   };
@@ -105,7 +101,6 @@ const UpdateBook = async (id: string, data: Partial<TBook>) => {
   
       return deletedBook;
     } catch (error) {
-      console.error("Error deleting book:", error);
       throw error;
     }
   };
