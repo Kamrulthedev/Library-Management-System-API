@@ -45,7 +45,7 @@ A comprehensive Library Management System API to manage books, members, and borr
 
 2. **Install Dependencies:**
 
-npm install
+```base npm install ```
 
 3. **Set Environment Variables: Create a .env file in the root directory and provide the required variables:**
 
