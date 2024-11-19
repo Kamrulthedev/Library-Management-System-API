@@ -85,3 +85,13 @@ A comprehensive Library Management System API to manage books, members, and borr
 3. Borrow/Return Management: Track borrowed books, process returns, and calculate overdue books.
 4. Overdue Tracking: Automatically track overdue books and notify administrators.
 5. RESTful API: Designed with clean REST architecture.
+
+
+## ***Known Issues/Bugs***
+
+1. None identified at the moment. Please report any bugs in the issue tracker.
+
+
+## ***Professional Formatting***
+
+This README file is designed for easy navigation and professional formatting.
