@@ -53,7 +53,7 @@ A comprehensive Library Management System API to manage books, members, and borr
 2. **Install Dependencies:**
 
    ```base
-        npm install
+   npm install
    ```
 
 3. **Set Environment Variables: Create a .env file in the root directory and provide the required variables:**
@@ -78,4 +78,10 @@ A comprehensive Library Management System API to manage books, members, and borr
 6. ***Access the API: The server runs on http://localhost:5000.***
 
 
+## ***Key Features & Functionality***
 
+1. Book Management: Add, view, update, and delete books in the library.
+2. Member Management: Manage library members and their details.
+3. Borrow/Return Management: Track borrowed books, process returns, and calculate overdue books.
+4. Overdue Tracking: Automatically track overdue books and notify administrators.
+5. RESTful API: Designed with clean REST architecture.
