@@ -5,6 +5,7 @@ A comprehensive Library Management System API to manage books, members, and borr
 ---
 
 ## **Live URL**
+
 [Live Deployment](#) <!-- Replace `#` with your live backend URL -->
 
 ---
@@ -12,6 +13,7 @@ A comprehensive Library Management System API to manage books, members, and borr
 ## **Technology Stack & Packages**
 
 ### **Backend Technologies**
+
 - **Node.js**: Backend runtime
 - **Express.js**: Web framework
 - **Prisma**: ORM for database interactions
@@ -19,6 +21,7 @@ A comprehensive Library Management System API to manage books, members, and borr
 - **TypeScript**: Strongly-typed language for building scalable applications
 
 ### **Packages Used**
+
 - `dotenv`: Manage environment variables
 - `cors`: Enable cross-origin requests
 - `helmet`: Enhance API security
@@ -32,21 +35,31 @@ A comprehensive Library Management System API to manage books, members, and borr
 ## **Setup Instructions**
 
 ### **Prerequisites**
+
 - **Node.js** (v16 or later)
 - **npm** (v7 or later) or **yarn**
 - **PostgreSQL** installed and running
 
 ### **Steps to Run Locally**
+
 1. **Clone the Repository:**
+
    ```bash
    git clone https://github.com/your-repo/library-management-system.git
    cd library-management-system
 
+   ```
 
 2. **Install Dependencies:**
 
-```base npm install ```
+   ```base
+        npm install
+   ```
 
 3. **Set Environment Variables: Create a .env file in the root directory and provide the required variables:**
 
+```base
+   DATABASE_URL=postgresql://<username>:<password>@<host>:<port>/<database>
+  PORT=5000
 
+```
