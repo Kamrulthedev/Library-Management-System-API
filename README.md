@@ -60,6 +60,22 @@ A comprehensive Library Management System API to manage books, members, and borr
 
 ```base
    DATABASE_URL=postgresql://<username>:<password>@<host>:<port>/<database>
-  PORT=5000
-
+   PORT=5000
 ```
+
+4. **Run Database Migrations:**
+   
+   ```base 
+     npx prisma migrate dev
+   ```
+
+5. ***Start the Server:***
+    
+    ```base 
+    npm run dev
+    ```
+
+6. ***Access the API: The server runs on http://localhost:5000.***
+
+
+
